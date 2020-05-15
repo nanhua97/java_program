@@ -4,6 +4,9 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
+/**
+ * 通过Channel与Buffer复制/拷贝文件
+ */
 public class NIOFileChannelCopy {
     public static void main(String[] args) throws IOException {
         createFile();
@@ -29,6 +32,11 @@ public class NIOFileChannelCopy {
                 break;
             }
         }
+
+        channelA.close();
+        channelB.close();
+        fileInputStream.close();
+        fileOutputStream.close();
 
     }
 
@@ -63,6 +71,9 @@ public class NIOFileChannelCopy {
         FileChannel channel1 = fileOutputStream.getChannel();
 
         channel1.write(byteBuffer);
+
+        channel.close();
+        channel1.close();
 
         fileOutputStream.close();
         fileInputStream.close();

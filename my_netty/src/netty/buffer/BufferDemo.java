@@ -2,6 +2,9 @@ package netty.buffer;
 
 import java.nio.IntBuffer;
 
+/**
+ * 初识Buffer
+ */
 public class BufferDemo {
     public static void main(String[] args) {
         //Buffer的简单使用

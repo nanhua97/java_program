@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
+/**
+ * 通过Channel与Buffer写入数据到文件
+ */
 public class NIOFileChannelWrite {
     public static void main(String[] args) throws IOException {
         //建立文件对象
@@ -30,6 +33,8 @@ public class NIOFileChannelWrite {
 
         //将buffer中的内容写入channel
         channel.write(byteBuffer);
+
+        channel.close();
 
         fileOutputStream.close();
     }

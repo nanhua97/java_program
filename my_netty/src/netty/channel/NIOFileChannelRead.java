@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
+/**
+ * 通过Channel与Buffer读取文件
+ */
 public class NIOFileChannelRead {
     public static void main(String[] args) throws IOException {
         //新建文件
@@ -25,6 +28,8 @@ public class NIOFileChannelRead {
 
         //将buffer中的数据转为字符串
         System.out.println(new String(byteBuffer.array()));
+
+        channel.close();
 
         fileInputStream.close();
 
