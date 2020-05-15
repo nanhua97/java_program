@@ -11,7 +11,6 @@ public class QuickSort {
     public static void main(String[] args) {
 
         Integer[] arr = {1, 0, 5, 7, 3, 4, 2, 8};
-//        Integer[] arr = {1, 0, 5, 7, 3, 4, 2, 8, 9, 0};
         merge(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
 
@@ -51,4 +50,5 @@ public class QuickSort {
 
         return start;
     }
+
 }
