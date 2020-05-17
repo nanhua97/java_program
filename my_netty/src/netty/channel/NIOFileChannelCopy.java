@@ -6,10 +6,11 @@ import java.nio.channels.FileChannel;
 
 /**
  * 通过Channel与Buffer复制/拷贝文件
+ * 通过Channel的transform方法复制文件
  */
 public class NIOFileChannelCopy {
     public static void main(String[] args) throws IOException {
-        createFile();
+        transform();
     }
 
     public static void copyFile() throws IOException {
@@ -78,4 +79,26 @@ public class NIOFileChannelCopy {
         fileOutputStream.close();
         fileInputStream.close();
     }
+
+    public static void transform() throws IOException {
+
+        File file = new File("1.jpg");
+
+        System.out.println(file.length());
+
+        FileInputStream fileInputStream = new FileInputStream("1.jpg");
+
+        FileOutputStream fileOutputStream = new FileOutputStream("2.jpg");
+
+        FileChannel inChannel = fileInputStream.getChannel();
+
+        FileChannel outChannel = fileOutputStream.getChannel();
+
+        inChannel.transferTo(0,file.length(),outChannel);
+
+        inChannel.close();
+        outChannel.close();
+
+    }
+
 }
