@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * NIO网络编程--多人聊天室
+ * NIO网络编程--多人聊天室(服务端)
  */
 public class NIOChatServer {
 
@@ -109,10 +109,10 @@ public class NIOChatServer {
             //读取数据到buffer
             clientChannel.read(clientBuffer);
 
-            System.out.println(new String(clientBuffer.array()));
+            System.out.println(new String(clientBuffer.array(),0,clientBuffer.position()));
 
             //向别的客户端发送消息
-            sendData(new String(clientBuffer.array()),clientChannel);
+            sendData(clientChannel.getRemoteAddress()+":"+new String(clientBuffer.array(),0,clientBuffer.position()),clientChannel);
         } catch (IOException e) {
 
             try {
