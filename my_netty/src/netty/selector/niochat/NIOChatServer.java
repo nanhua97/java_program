@@ -112,7 +112,10 @@ public class NIOChatServer {
             System.out.println(new String(clientBuffer.array(),0,clientBuffer.position()));
 
             //向别的客户端发送消息
-            sendData(clientChannel.getRemoteAddress()+":"+new String(clientBuffer.array(),0,clientBuffer.position()),clientChannel);
+            sendData(clientChannel.getRemoteAddress()+"说:"+new String(clientBuffer.array(),0,clientBuffer.position()),clientChannel);
+
+            clientBuffer.clear();
+
         } catch (IOException e) {
 
             try {

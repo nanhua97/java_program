@@ -36,14 +36,15 @@ public class NIOChatClient {
 
     public void readData(){
         try{
-            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
-            if (selector.select(2000)>0){
+            if (selector.select()>0){
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
 
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
 
                 while (iterator.hasNext()){
+                    ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+
                     SelectionKey next = iterator.next();
 
                     SocketChannel channel = (SocketChannel)next.channel();
