@@ -35,7 +35,7 @@ public class ScatteringAndGatheringTest {
         //接受请求
         SocketChannel accept = serverSocketChannel.accept();
 
-        //爱着你之每次读取的字节长度
+        //指定每次读取的字节长度
         int messageLength = 10;
 
         //循环读取
