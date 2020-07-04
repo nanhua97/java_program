@@ -29,6 +29,31 @@ public class NettyServer {
 
             ChannelFuture channelFuture = serverBootstrap.bind("127.0.0.1", 8000).sync();
 
+            //Future:Netty中的bind/connect等请求都是异步的,会先返回一个Future对象
+            //Listener:可以为Futurn对象添加Listener,监听相应事件,事件发生后会触发listener
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (channelFuture.isSuccess()){
+                        System.out.println("服务端端口绑定成功");
+                    }else {
+                        System.out.println("服务端端口绑定失败");
+                    }
+                }
+            });
+
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+
+                    if (channelFuture.isDone()){
+                        System.out.println("服务端端口绑定完毕");
+                    }
+
+                }
+            });
+
+
             ChannelFuture channelFuture1 = channelFuture.channel().closeFuture().sync();
 
         } catch (Exception e) {
