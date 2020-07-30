@@ -1,4 +1,4 @@
-package jct_test.saleTicket;
+package juc_test.saleTicket;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
