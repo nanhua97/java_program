@@ -3,6 +3,7 @@ package jvm_test.heap_test;
 import java.util.Random;
 
 /**
+ * -Xms20m -Xmx20m -XX:+PrintGCDetails
  * OOM:OutOfMemory 堆内存溢出
  */
 public class GCDetails {
