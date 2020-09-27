@@ -18,11 +18,8 @@ class TestDB{
 
     private ReadWriteLock lock = new ReentrantReadWriteLock();
 
-//    private Lock lock = new ReentrantLock();
-
     public void put(String key,Object val){
-        //lock.writeLock().lock();
-//        lock.lock();
+        lock.writeLock().lock();
         try {
             System.out.println(Thread.currentThread().getName() + "\t开始写入" + key);
             try {
@@ -36,7 +33,6 @@ class TestDB{
             e.printStackTrace();
         } finally {
             lock.writeLock().unlock();
-//            lock.unlock();
         }
     }
 

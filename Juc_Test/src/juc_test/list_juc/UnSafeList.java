@@ -22,8 +22,6 @@ public class UnSafeList {
         //unSafeList();
         //unSafeSet();
         unSafeMap();
-
-
     }
 
     private static void unSafeMap() {
